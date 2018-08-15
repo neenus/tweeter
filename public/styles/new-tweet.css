@@ -19,8 +19,13 @@ section.new-tweet {
 
 span.counter {
   float: right;
+  color: black
 }
 
 form > input {
   float: left;
+}
+
+.warningCounter {
+  color: red !important;
 }

@@ -15,12 +15,11 @@ html {
  */
 
 body {
-  margin: 0;
   /* padding-top: 100px; */
   color: #244751;
   background-color: #eee;
   font-family: 'Roboto Condensed', sans-serif;
-  margin: 140px auto;
+  margin: 80px auto;
 }
 
 /*
@@ -32,4 +31,5 @@ body {
    text-align: center;
    background-color: white;
    margin: 0 auto;
+   padding: 20px;
  }

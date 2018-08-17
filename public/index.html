@@ -27,6 +27,10 @@
 
     <!-- Counter Composer JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
+    <!-- Font Awesome icones -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  
   </head>
 
   <body>
@@ -40,7 +44,7 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets">
+        <form id="tweet-form" method="POST" action="/tweets">
           <textarea name="text" placeholder="What are you humming about?"></textarea>
           <input id="tweet-submit" type="submit" value="Tweet">
           <span class="counter">140</span>

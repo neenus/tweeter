@@ -45,6 +45,10 @@ body {
   opacity: 1;
 }
 
+.tweet:hover .icons {
+  display: block;
+}
+
 .tweet {
   margin-top: 10px;
   border: 1px solid #555;
@@ -85,4 +89,10 @@ article.tweet footer {
 .handle {
   line-height: 3.5em;
   float: right;
+}
+
+.icons {
+  float: right;
+  display: none;
+  transition: 0.5s;
 }

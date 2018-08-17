@@ -3,6 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 $(document).ready(function () {
 
@@ -17,8 +22,13 @@ $(document).ready(function () {
       alert('Tweet charecter count exceeded');
     } else {
       console.log($(this));
-      console.log($(this).serialize());
-      
+      console.log($('#tweet-form').serialize());
+      $.post("/tweets", $('#tweet-form').serialize(), function (data) {
+          console.log(data);
+          let $element = createTweetElement(data);
+          $('#tweets-container').prepend($element);
+      });
+
     }
   });
   
@@ -43,10 +53,15 @@ $(document).ready(function () {
           <div class="handle">${handle}</div>
         </header>
         <div class="tweet-body">
-          <p>${tweetContent}</p>
+          <p>${escape(tweetContent)}</p>
         </div>
         <footer>
-          <p>${footer} days ago</p>
+          <span>${footer} days ago</span>
+          <span class="icons">
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+          </span>
         </footer>
       </article> `;
     return element;

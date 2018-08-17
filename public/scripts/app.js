@@ -10,6 +10,14 @@ function escape(str) {
 }
 
 $(document).ready(function () {
+  
+
+  // Compose toggle 
+    $('#compose').click(function(){
+      $('.new-tweet').slideToggle('slow', function() {
+        $('#textarea').focus();
+      });
+    });
 
   // prevent default submit on form and pass it serialized to server on submit 
   $('#tweet-submit').click(function (event) {
@@ -27,8 +35,8 @@ $(document).ready(function () {
           console.log(data);
           let $element = createTweetElement(data);
           $('#tweets-container').prepend($element);
+          $('textarea').val("");
       });
-
     }
   });
   

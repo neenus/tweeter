@@ -47,6 +47,8 @@ body {
 
 .tweet:hover .icons {
   display: block;
+  opacity: 0.45;
+  /* transition: 3.300s; */
 }
 
 .tweet {
@@ -70,6 +72,7 @@ article.tweet footer {
 
 .tweet-body {
   padding: 10px;
+  word-wrap: break-word;
 }
 
 .profile-img {
@@ -94,5 +97,5 @@ article.tweet footer {
 .icons {
   float: right;
   display: none;
-  transition: 0.5s;
+  /* transition: 0.01s; */
 }

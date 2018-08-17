@@ -6,7 +6,6 @@
 
 $(document).ready(function() {
 
-
 // Fake data taken from tweets.json
 const data = [
   {
@@ -55,18 +54,13 @@ const data = [
   }
 ];
 
-// Function to convert time stamp to time past
-
-// function convertDate($element) {
-//   let createDateInMs = new Date($element.created_at).getTime(); //.getTime() changes to milliseconds
-//   let currentDateInMs = new Date(Date.now()).getTime();
-//   let dayinMs = 24 * 60 * 60 * 1000;
-//   let timePassedInDays = Math.round(
-//     (currentDateInMs - createDateInMs) / dayinMs);
-//   return timePassedInDays;
-// }
-// console.log(convertDate());
-
+// prevent default submit on form and pass it serialized to server on submit 
+$('form').click(function(event) {
+  event.preventDefault();
+  console.log($(this));
+  console.log($(this).serialize());
+});
+// –––––––––––––––––––––––––––––––––––––
 function createTweetElement (tweetData) {
   let name = tweetData.user.name;
   let handle = tweetData.user.handle;
@@ -94,20 +88,12 @@ var element =
 return element;
 }
 
-// $tweet = createTweetElement(tweetData);
-
 function renderTweets(tweets) {
-  // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
-    for (let tweet of tweets ) {
-      let $element = createTweetElement(tweet);
-      $('#tweets-container').append($element); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-      console.log($element); // to see what it looks like
-    }
+  for (let tweet of tweets ) {
+    let $element = createTweetElement(tweet);
+    $('#tweets-container').append($element); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  }
 }
 renderTweets(data);
 
-// let $tweet = $("<article>").addClass("tweet");
-// Test / driver code (temporary)
 });

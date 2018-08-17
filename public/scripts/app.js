@@ -7,10 +7,19 @@
 $(document).ready(function () {
 
   // prevent default submit on form and pass it serialized to server on submit 
-  $('form').click(function (event) {
+  $('#tweet-submit').click(function (event) {
     event.preventDefault();
-    console.log($(this));
-    console.log($(this).serialize());
+    if ($('textarea').val() === ''|| $('textarea').val() === null) {
+      // console.log('text area empty or null');
+      alert('Tweet can not be empty');
+    } else if ($('textarea').val().length > 140) {
+      // console.log('over limit');
+      alert('Tweet charecter count exceeded');
+    } else {
+      console.log($(this));
+      console.log($(this).serialize());
+      
+    }
   });
   
   // –––––––––––––––––––––––––––––––––––––
@@ -61,6 +70,5 @@ $(document).ready(function () {
         renderTweets(tweetsJSON);
       });
   }
-  //renderTweets(data);
   loadTweets();
 });

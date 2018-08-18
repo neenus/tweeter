@@ -48,7 +48,6 @@ body {
 .tweet:hover .icons {
   display: block;
   opacity: 0.45;
-  /* transition: 3.300s; */
 }
 
 .tweet {
@@ -97,5 +96,13 @@ article.tweet footer {
 .icons {
   float: right;
   display: none;
-  /* transition: 0.01s; */
+}
+
+.error-box {
+  display: none;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #FFD2D2;
+  border-radius: 5px;
+
 }

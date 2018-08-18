@@ -23,11 +23,9 @@ $(document).ready(function () {
   $('#tweet-submit').click(function (event) {
     event.preventDefault();
     if ($('textarea').val() === ''|| $('textarea').val() === null) {
-      // console.log('text area empty or null');
-      alert('Tweet can not be empty');
+      $(this).siblings('#empty-tweet').slideDown();
     } else if ($('textarea').val().length > 140) {
-      // console.log('over limit');
-      alert('Tweet charecter count exceeded');
+      $(this).siblings('#over14o').slideDown();
     } else {
       console.log($(this));
       console.log($('#tweet-form').serialize());
@@ -36,7 +34,8 @@ $(document).ready(function () {
           let $element = createTweetElement(data);
           $('#tweets-container').prepend($element);
           $('textarea').val("");
-      });
+          $('.counter').text(140);
+      }).done($(this).siblings('.error-box').slideUp());
     }
   });
   

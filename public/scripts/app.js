@@ -78,7 +78,7 @@ $(document).ready(function () {
   function renderTweets(loadTweets) {
     for (let tweet of loadTweets) {
       let $element = createTweetElement(tweet);
-      $('#tweets-container').append($element); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+      $('#tweets-container').prepend($element); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
     }
   }
 
